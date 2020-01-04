@@ -1,1 +1,1 @@
-n*i
+len(word)
