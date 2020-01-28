@@ -22,6 +22,18 @@ class Solution:
                 current_node = current_node.next
             current_node.next = new_node
         return head
+    def removeDuplicates(self, head):
+        current = head
+        while current:
+            previous = current
+            current = current.next
+            if previous is None or current is None:
+                continue
+            if current.data == previous.data:
+                previous.next = current.next
+                current = previous
+        self.display(head)
+        return None
 
 myList = Solution()
 T = int(input())
@@ -29,4 +41,4 @@ head = None
 for i in range(T):
     data = int(input())
     head = myList.insert(head, data)
-myList.display(head)
+myList.removeDuplicates(head)
