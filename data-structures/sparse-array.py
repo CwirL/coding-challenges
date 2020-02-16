@@ -12,7 +12,7 @@ def matchingStrings(strings, queries):
     return sols
 
 
-file = open('./data', 'r')
+file = open('input', 'r')
 strings_count = int(file.readline())
 strings = []
 for _ in range(strings_count):

@@ -15,7 +15,7 @@ def dynamicArray(n, queries):
         print(answer)
 
 
-file = open('./data', 'r')
+file = open('input', 'r')
 firstLine = file.readline().split()
 n = int(firstLine[0])
 q = int(firstLine[1])

@@ -32,7 +32,7 @@ class Solution:
             '''
             print('[', end='')
             for node in q:
-                print(str(node.data), end=' ')
+                print(str(node.input), end=' ')
             print(']')
             '''
         return None

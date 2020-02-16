@@ -13,7 +13,7 @@ def hourglassSum(arr):
     return sums[-1]
 
 
-file = open("./data", 'r')
+file = open("input", 'r')
 a = []
 for _ in range(6):
     a.append(list(map(int, file.readline().split())))

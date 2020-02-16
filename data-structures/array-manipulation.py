@@ -14,7 +14,7 @@ def arrayManipulation(n, queries):
             maxval = itt
     return maxval
 
-file = open('./data', 'r')
+file = open('input', 'r')
 mn = file.readline().rstrip().split()
 n = int(mn[0])
 m = int(mn[1])
