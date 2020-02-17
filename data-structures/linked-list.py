@@ -63,6 +63,20 @@ def insertNodeAtPosition(head, data, position):
     current.next = nnode
     return head
 
+
+def deleteNode(head, position):
+    if head is None:
+        return head
+    if position == 0:
+        head = head.next
+        return head
+    current = head
+    for i in range(position - 1):
+        current = current.next
+    current.next = current.next.next
+    return head
+
+
 if __name__ == '__main__':
     fptr = open('./output', 'w')
     llist_count = int(input())
@@ -73,12 +87,11 @@ if __name__ == '__main__':
         llist_item = int(input())
         llist.insert_node(llist_item)
 
-    data = int(input())
     position = int(input())
 
-    llist_head = insertNodeAtPosition(llist.head, data, position)
+    llist1 = deleteNode(llist.head, position)
 
-    print_singly_linked_list(llist_head, ' ', fptr)
+    print_singly_linked_list(llist1, ' ', fptr)
     fptr.write('\n')
 
     fptr.close()
