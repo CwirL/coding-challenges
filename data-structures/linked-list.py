@@ -76,22 +76,23 @@ def deleteNode(head, position):
     current.next = current.next.next
     return head
 
+# Print link list in reversed  orderss
+def reversePrint(head):
+    if (head == None):
+        return  None
+    reversePrint(head.next)
+    print(head.data)
 
 if __name__ == '__main__':
-    fptr = open('./output', 'w')
-    llist_count = int(input())
+    tests = int(input())
 
-    llist = SinglyLinkedList()
+    for tests_itr in range(tests):
+        llist_count = int(input())
 
-    for _ in range(llist_count):
-        llist_item = int(input())
-        llist.insert_node(llist_item)
+        llist = SinglyLinkedList()
 
-    position = int(input())
+        for _ in range(llist_count):
+            llist_item = int(input())
+            llist.insert_node(llist_item)
 
-    llist1 = deleteNode(llist.head, position)
-
-    print_singly_linked_list(llist1, ' ', fptr)
-    fptr.write('\n')
-
-    fptr.close()
+        reversePrint(llist.head)
