@@ -100,22 +100,47 @@ def reverse(head):
         return nhead
 
 
+def compare_lists(llist1, llist2):
+    if llist1 is None and llist2 is None:
+        return 1
+    elif llist1 is None or llist2 is None:
+        return 0
+    currentllist1 = llist1
+    currentllist2 = llist2
+    while currentllist1.next is not None:
+        if currentllist2.next is None:
+            return 0
+        if currentllist1.data != currentllist2.data:
+            return 0
+        currentllist1 = currentllist1.next
+        currentllist2 = currentllist2.next
+    return 1
+
+
 if __name__ == '__main__':
-    fptr = open('./output', 'w')
+    fptr = open('../output', 'w')
 
     tests = int(input())
 
     for tests_itr in range(tests):
-        llist_count = int(input())
+        llist1_count = int(input())
 
-        llist = SinglyLinkedList()
+        llist1 = SinglyLinkedList()
 
-        for _ in range(llist_count):
-            llist_item = int(input())
-            llist.insert_node(llist_item)
+        for _ in range(llist1_count):
+            llist1_item = int(input())
+            llist1.insert_node(llist1_item)
 
-        llist1 = reverse(llist.head)
-        print_singly_linked_list(llist1, ' ', fptr)
-        fptr.write('\n')
+        llist2_count = int(input())
+
+        llist2 = SinglyLinkedList()
+
+        for _ in range(llist2_count):
+            llist2_item = int(input())
+            llist2.insert_node(llist2_item)
+
+        result = compare_lists(llist1.head, llist2.head)
+
+        fptr.write(str(int(result)) + '\n')
 
     fptr.close()
