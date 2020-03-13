@@ -117,6 +117,39 @@ def compare_lists(llist1, llist2):
     return 1
 
 
+def mergeLists(head1, head2):
+    if head1 is None:
+        return head2
+    if head2 is None:
+        return head1
+    if head1 is None and head2 is None:
+        return None
+    if head1.data < head2.data:
+        current1 = head1
+        current2 = head2
+        head = head1
+    else:
+        current1 = head2
+        current2 = head1
+        head = head2
+    current = head
+    while current1.next is not None and current2.next is not None:
+        if current1.next is None:
+            current = current2.next
+            return head
+        if current2.next is None:
+            current = current1.next
+            return head
+        if current1.next.data < current2.next.data:
+            current = current1.next
+            current1 = current1.next
+        else:
+            current = current2.next
+            current2 = current2.next
+        print(current.data)
+    return head
+
+
 if __name__ == '__main__':
     fptr = open('../output', 'w')
 
@@ -139,8 +172,9 @@ if __name__ == '__main__':
             llist2_item = int(input())
             llist2.insert_node(llist2_item)
 
-        result = compare_lists(llist1.head, llist2.head)
+        llist3 = mergeLists(llist1.head, llist2.head)
 
-        fptr.write(str(int(result)) + '\n')
+        print_singly_linked_list(llist3, ' ', fptr)
+        fptr.write('\n')
 
     fptr.close()
