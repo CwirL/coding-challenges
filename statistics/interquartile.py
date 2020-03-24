@@ -14,7 +14,7 @@ def find_quarts(x):
     lower = x[:n // 2]
     upper = x[n // 2:]
     Q1 = find_quart(lower)
-    Q3 = find_quart(upper)
+    Q3 = find_quart(upper) 
     return [Q1, Q2, Q3]
 
 
