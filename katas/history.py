@@ -1,6 +1,7 @@
 # kata # 1 - Multiply
 def multiply(a, b):
-  return a * b
+    return a * b
+
 
 # Kata # 2
 sentence = "Hey fellow warriors"
@@ -18,3 +19,29 @@ for sent in sentenceArray:
     else:
         reversed_sentence += reversed_sent + " "
 print(reversed_sentence)
+
+
+# Kata # 3 - Find the odd int
+def find_it(seq):
+    unique_ints = set(seq)
+    frequencies = {}
+    for j in seq:
+        for z in unique_ints:
+            if z == j:
+                if frequencies.get(z) is None:
+                    frequencies[z] = 1
+                else:
+                    frequencies[z] += 1
+                break
+    for freq in frequencies:
+        if frequencies[freq] % 2 != 0:
+            return freq
+
+
+# Kata # 4 - Array.diff
+def array_diff(a, b):
+    if len(a) == 0 or len(b) == 0:
+        return a
+    for number in b:
+        a = list(filter(lambda x: x != number, a))
+    return a
