@@ -79,4 +79,25 @@ def rgb(r, g, b):
     return "{}{}{}".format(int_to_hex(r), int_to_hex(g), int_to_hex(b))
 
 
-
+# kata # 8 - Take a Ten Minute Walk
+def is_valid_walk(walk):
+    if walk.length != 10:
+        return False
+    vertical = horizontal = 0
+    for points in walk:
+        if points == 'n':
+            vertical += 1
+            continue
+        elif points == 's':
+            vertical -= 1
+            continue
+        if points == 'e':
+            horizontal += 1
+            continue
+        if points == 'w':
+            horizontal -= 1
+            continue
+    if horizontal == 0 and vertical == 0:
+        return True
+    else:
+        return False
