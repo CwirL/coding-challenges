@@ -57,3 +57,9 @@ def create_phone_number(n):
             phone_number += '-'
         phone_number += str(i)
     return phone_number
+
+
+# kata # 6 - Highest and Lowest
+def high_and_low(numbers):
+    numbers = list(map(int, numbers.split()))
+    return "{} {}".format(max(numbers), min(numbers))
