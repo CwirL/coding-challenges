@@ -45,3 +45,15 @@ def array_diff(a, b):
     for number in b:
         a = list(filter(lambda x: x != number, a))
     return a
+
+
+# kata # 5 - Create Phone Number
+def create_phone_number(n):
+    phone_number = '('
+    for (idx, i) in enumerate(n):
+        if idx == 3:
+            phone_number += ') '
+        elif idx == 6:
+            phone_number += '-'
+        phone_number += str(i)
+    return phone_number
