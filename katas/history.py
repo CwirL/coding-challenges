@@ -63,3 +63,20 @@ def create_phone_number(n):
 def high_and_low(numbers):
     numbers = list(map(int, numbers.split()))
     return "{} {}".format(max(numbers), min(numbers))
+
+
+# kata # 7 - RGB To Hex Conversion
+def rgb(r, g, b):
+    def int_to_hex(n):
+        if n <= 0:
+            return '00'
+        if 1 <= n < 16:
+            return '0' + hex(n)[-1].upper()
+        elif n >= 255:
+            return 'FF'
+        else:
+            return hex(n)[2:4].upper()
+    return "{}{}{}".format(int_to_hex(r), int_to_hex(g), int_to_hex(b))
+
+
+
