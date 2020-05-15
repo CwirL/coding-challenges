@@ -107,3 +107,7 @@ def is_valid_walk(walk):
 def song_decoder(song):
     return " ".join(list(filter(lambda x: (x != ''), song.split("WUB"))))
 
+
+# kata # 10 - Which are in?
+def in_array(array1, array2):
+    return sorted(list(set(a for a in array1 if " ".join(array2).find(a) != -1)))
