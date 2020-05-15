@@ -101,3 +101,9 @@ def is_valid_walk(walk):
         return True
     else:
         return False
+
+
+# kata # 9 - Dubstep
+def song_decoder(song):
+    return " ".join(list(filter(lambda x: (x != ''), song.split("WUB"))))
+
