@@ -116,3 +116,21 @@ def in_array(array1, array2):
 # kata # 11 - Simple Pig Latin
 def pig_it(text):
     return " ".join([a[1:] + a[0] + 'ay' if a.isalpha() else a for a in text.split()])
+
+
+# kata # 12 - Human readable duration format
+def format_duration(seconds):
+    if seconds == 0: return "now"
+    time_breaks = [31536000, 86400, 3600, 60]
+    time_strs = ["year", "day", "hour", "minute"]
+    date = []
+    for time, time_srt in zip(time_breaks, time_strs):
+        val = seconds // time
+        if val > 0:
+            val = seconds // time
+            val = seconds // time
+            date.append("{} {}".format(val, time_srt) if val == 1 else "{} {}s".format(val, time_srt))
+            seconds %= time
+    if seconds > 0:
+        date.append("1 second" if seconds == 1 else str(seconds) + " seconds")
+    return {1: "{}", 2: "{} and {}", 3: "{}, {} and {}", 4: "{}, {}, {} and {}", 5: "{}, {}, {}, {} and {}"}[len(date)].format(*date)
