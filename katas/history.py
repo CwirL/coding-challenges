@@ -111,3 +111,8 @@ def song_decoder(song):
 # kata # 10 - Which are in?
 def in_array(array1, array2):
     return sorted(list(set(a for a in array1 if " ".join(array2).find(a) != -1)))
+
+
+# kata # 11 - Simple Pig Latin
+def pig_it(text):
+    return " ".join([a[1:] + a[0] + 'ay' if a.isalpha() else a for a in text.split()])
