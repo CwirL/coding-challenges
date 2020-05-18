@@ -134,3 +134,17 @@ def format_duration(seconds):
     if seconds > 0:
         date.append("1 second" if seconds == 1 else str(seconds) + " seconds")
     return {1: "{}", 2: "{} and {}", 3: "{}, {} and {}", 4: "{}, {}, {} and {}", 5: "{}, {}, {}, {} and {}"}[len(date)].format(*date)
+
+
+# kata # 13 - Maximum subarray sum
+def max_sequence(arr):
+    n = len(arr)
+    diff = 1
+    max_int = 0
+    for i in range(len(arr)):
+        for j in range(n):
+            if sum(arr[j:j + diff]) > max_int:
+                max_int = sum(arr[j:j + diff])
+        diff += 1
+        n -= 1
+    return max_int
