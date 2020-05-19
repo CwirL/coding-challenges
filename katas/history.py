@@ -148,3 +148,8 @@ def max_sequence(arr):
         diff += 1
         n -= 1
     return max_int
+
+
+# kata # 14 - Pete, the baker
+def cakes(recipe, available):
+    return min([available[ingredient] // size] if ingredient in available else [0] for ingredient, size in recipe.items())[0]
