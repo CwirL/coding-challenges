@@ -153,3 +153,21 @@ def max_sequence(arr):
 # kata # 14 - Pete, the baker
 def cakes(recipe, available):
     return min([available[ingredient] // size] if ingredient in available else [0] for ingredient, size in recipe.items())[0]
+
+
+# kata # 15 - The observed PIN
+from itertools import product
+def get_pins(observed):
+    variations = {
+        1: [1, 2, 4],
+        2: [2, 1, 3, 5],
+        3: [3, 2, 6],
+        4: [4, 1, 5, 7],
+        5: [5, 2, 4, 6, 8],
+        6: [6, 3, 5, 9],
+        7: [7, 4, 8],
+        8: [8, 7, 5, 9],
+        9: [9, 8, 6],
+        0: [0, 8]
+    }
+    return [''.join(map(str, combination)) for combination in product(*[variations[int(digit)] for digit in observed])]
