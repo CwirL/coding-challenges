@@ -171,3 +171,33 @@ def get_pins(observed):
         0: [0, 8]
     }
     return [''.join(map(str, combination)) for combination in product(*[variations[int(digit)] for digit in observed])]
+
+
+# kata # 16 - Prime factors
+def is_prime(n):
+    return not any(n % x == 0 for x in range(2, n))
+class Primes:
+    def __init__(self, n):
+        self.primes_arr = [x for x in range(2, n) if n % x == 0]
+        self.index = 0
+    def get_prime(self):
+        return self.primes_arr[self.index]
+    def next_prime(self):
+        self.index += 1
+def factorize(n):
+    primes = Primes(n)
+    prime_factors = []
+    while n > 1:
+        if n % primes.get_prime() == 0:
+            n /= primes.get_prime()
+            prime_factors.append(primes.get_prime())
+        else:
+            primes.next_prime()
+    return prime_factors
+def sum_for_list(lst):
+    prime_factors_map = {}
+    lst += [sum(lst)]
+    print(lst)
+    for i in lst:
+        prime_factors_map[i] = set(factorize(i))
+    return prime_factors_map
