@@ -201,3 +201,28 @@ def sum_for_list(lst):
     for i in lst:
         prime_factors_map[i] = set(factorize(i))
     return prime_factors_map
+
+
+# kata # 17 Calculator
+from operator import add, sub, mul, truediv
+
+class Calculator(object):
+    def toFloat(self, el):
+        try:
+            print(el)
+            return float(el)
+        except:
+            return el
+    def evaluate(self, string):
+        ops = {"/": truediv, "*": mul, "-": sub, "+": add}
+        string = list(map(self.toFloat, string.split()))
+        operands = list(map(float, [val for val in string if type(val) == float]))
+        ops_str = [val for val in string if not type(val) == float]
+        for op in ops:
+            while op in ops_str:
+                idx = ops_str.index(op)
+                ops_str.pop(idx)
+                new_value = ops[op](operands[idx], operands[idx + 1])
+                operands = operands[:idx] + operands[idx + 2:]
+                operands.insert(idx, new_value)
+        return operands[0]
