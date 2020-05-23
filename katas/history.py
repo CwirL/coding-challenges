@@ -226,3 +226,10 @@ class Calculator(object):
                 operands = operands[:idx] + operands[idx + 2:]
                 operands.insert(idx, new_value)
         return operands[0]
+
+
+# kata # 18 Sum of Intervals
+from functools import reduce
+def sum_of_intervals(intervals):
+    intervals.insert(0, [])
+    return len(set(reduce(lambda list_interval, element: list_interval + list(range(element[0], element[1])), intervals)))
